@@ -1,5 +1,11 @@
 # Railway station class
 class RailwayStation
+  attr_reader :name
+
+  def initialize(name)
+    @name = name
+  end
+
   def take_train
     puts 'Passed!'
   end

@@ -1,30 +1,38 @@
 # Train class
 class Train
-  attr_accessor :speed, :wagons_count, :type
+  attr_accessor :wagons_count
+  attr_reader :speed
 
-  def initialize(type = 'passenger')
+  def initialize
     @wagons_count = 1
     @speed = 0
-    @type = type
+  end
+
+  def initial_speed
+    50
   end
 
   def gain_speed
-    self.speed += 10
+    gain_speed! if train_stopped?
   end
 
   def brake
-    self.speed = 0
+    brake! unless train_stopped?
+  end
+
+  def train_stopped?
+    speed.zero?
   end
 
   def take_route
     puts 'Passed!'
   end
 
-  def hook_wagons
+  def hook_wagon(wagon)
     self.wagons_count += 1
   end
 
-  def unhitch_wagons
+  def unhitch_wagon(wagon)
     self.wagons_count -= 1 if self.wagons_count > 1
   end
 
@@ -34,5 +42,17 @@ class Train
 
   def show_route_stations(stations = [])
     puts stations
+  end
+
+  private
+
+  attr_writer :speed
+
+  def gain_speed!
+    self.speed = initial_speed
+  end
+
+  def brake!
+    self.speed = 0
   end
 end

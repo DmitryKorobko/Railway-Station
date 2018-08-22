@@ -1,11 +1,12 @@
 # Railway station class
 class RailwayStation
   attr_accessor :trains_list
-  attr_reader :name
+  attr_reader :name, :id
 
-  def initialize(name)
+  def initialize(name, id)
     @name = name
     @trains_list = []
+    @id = id
   end
 
   def take_train(train)

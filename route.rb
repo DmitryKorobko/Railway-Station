@@ -1,11 +1,12 @@
 # Route class
 class Route
-  attr_reader :stations_list, :finish_station, :start_station
+  attr_reader :stations_list, :finish_station, :start_station, :id
 
-  def initialize(start, finish)
+  def initialize(start, finish, id)
     @start_station = start.name
     @finish_station = finish.name
     @stations_list = [start.name, finish.name]
+    @id = id
   end
 
   def add_station(station)

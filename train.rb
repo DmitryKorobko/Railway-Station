@@ -1,11 +1,12 @@
 # Train class
 class Train
   attr_accessor :wagons_count
-  attr_reader :speed
+  attr_reader :speed, :id
 
-  def initialize
+  def initialize(id)
     @wagons_count = 1
     @speed = 0
+    @id = id
   end
 
   def initial_speed

@@ -1,9 +1,11 @@
 # Wagon class
 class Wagon
   attr_accessor :hooked
+  attr_reader :id
 
-  def initialize
+  def initialize(id)
     @hooked = false
+    @id = id
   end
 
   def hook

@@ -94,6 +94,14 @@ class MainRailway
       PassengerTrain.find('train1')
       puts 'Testing method find end'
       puts
+      puts 'Testing instances module start'
+      puts 'Count of instances before creating train:'
+      PassengerTrain.instances
+      PassengerTrain.new('train1')
+      puts 'Count of instances after creating train:'
+      PassengerTrain.instances
+      puts 'Testing instances module end'
+      puts
       actions_selector
     else
       puts 'This action not exist!'

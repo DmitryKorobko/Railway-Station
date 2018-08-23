@@ -1,5 +1,9 @@
+require_relative 'instance_counter'
+
 # Railway station class
 class RailwayStation
+  include InstanceCounter
+
   attr_accessor :trains_list
   attr_reader :name, :id
 
@@ -10,6 +14,7 @@ class RailwayStation
     @trains_list = []
     @id = id
     @@stations[name.to_sym] = { station_name: name }
+    register_instance
   end
 
   def take_train(train)

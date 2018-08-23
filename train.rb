@@ -1,10 +1,12 @@
 require_relative 'company'
+require_relative 'instance_counter'
 require 'json'
 require 'ostruct'
 
 # Train class
 class Train
   include Company
+  include InstanceCounter
 
   attr_accessor :wagons_count
   attr_reader :speed, :id
@@ -17,6 +19,7 @@ class Train
     @id = id
     @company_name = ''
     @@trains_list[id] = { wagons_count: 1, speed: 0, id: id, company_name: '' }
+    register_instance
   end
 
   def initial_speed

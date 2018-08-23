@@ -11,6 +11,8 @@ class Train
   attr_accessor :wagons_count
   attr_reader :speed, :id
 
+  NUMBER_FORMAT = /^([a-z]|\d){3}-*([a-z]|\d){2}$/i
+
   @@trains_list = {}
 
   def initialize(id)
@@ -19,7 +21,13 @@ class Train
     @id = id
     @company_name = ''
     @@trains_list[id] = { wagons_count: 1, speed: 0, id: id, company_name: '' }
-    register_instance
+    validate!
+  end
+
+  def valid?
+    validate!
+  rescue RuntimeError
+    false
   end
 
   def initial_speed
@@ -69,9 +77,14 @@ class Train
     end
   end
 
-  private
+  protected
 
   attr_writer :speed
+
+  def validate!
+    raise 'Invalid format number! Try with correct!' if @id !~ NUMBER_FORMAT
+    true
+  end
 
   def gain_speed!
     self.speed = initial_speed

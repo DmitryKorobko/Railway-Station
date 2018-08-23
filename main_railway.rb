@@ -76,7 +76,7 @@ class MainRailway
     when 'test'
       puts
       puts 'Testing module company start'
-      test1 = PassengerTrain.new('test_train')
+      test1 = PassengerTrain.new('23d-12')
       puts "Before method: #{test1.company_name}"
       test1.company_name = 'Test Company'
       puts "After method: #{test1.company_name}"
@@ -90,14 +90,14 @@ class MainRailway
       puts 'Testing method all end'
       puts
       puts 'Testing method find start'
-      PassengerTrain.new('train1')
-      PassengerTrain.find('train1')
+      PassengerTrain.new('23d-12')
+      PassengerTrain.find('23d-12')
       puts 'Testing method find end'
       puts
       puts 'Testing instances module start'
       puts 'Count of instances before creating train:'
       PassengerTrain.instances
-      PassengerTrain.new('train1')
+      PassengerTrain.new('23d-12')
       puts 'Count of instances after creating train:'
       PassengerTrain.instances
       puts 'Testing instances module end'

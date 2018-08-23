@@ -72,6 +72,29 @@ class MainRailway
       puts ''
     when 'q'
       puts 'Bye!'
+    # Tests
+    when 'test'
+      puts
+      puts 'Testing module company start'
+      test1 = PassengerTrain.new('test_train')
+      puts "Before method: #{test1.company_name}"
+      test1.company_name = 'Test Company'
+      puts "After method: #{test1.company_name}"
+      puts 'Testing module company end'
+      puts
+      puts 'Testing method all start'
+      RailwayStation.new('TestStation1', 't1')
+      RailwayStation.new('TestStation2', 't2')
+      puts 'Testing method all:'
+      RailwayStation.all
+      puts 'Testing method all end'
+      puts
+      puts 'Testing method find start'
+      PassengerTrain.new('train1')
+      PassengerTrain.find('train1')
+      puts 'Testing method find end'
+      puts
+      actions_selector
     else
       puts 'This action not exist!'
       actions_selector
